@@ -1,0 +1,37 @@
+# Cairo
+
+-hblib
+-inc
+
+-olib/${hb_plat}/${hb_comp}/${hb_name}
+
+-w3 -es2
+
+-depurlbase=cairo:https://cairographics.org/download/
+-depurlbase=cairo:https://gitlab.freedesktop.org/cairo/cairo
+-deppkgname=cairo:libcairo2-dev{deb}
+-deppkgname=cairo:cairo-devel{rpm}
+-deppkgname=cairo:cairo{homebrew|pkgng}
+-deppkgname=cairo:cairo{pacman}
+-deppkgname=cairo:mingw-w64-i686-cairo{msys2&x86}
+-deppkgname=cairo:mingw-w64-x86_64-cairo{msys2&x86_64}
+-depkeyhead=cairo:cairo/cairo.h
+-depcontrol=cairo:no{HB_BUILD_3RDEXT='no'}
+-depcontrol=cairo:${HB_WITH_CAIRO}
+-depincpath=cairo:/usr/include/cairo
+-depincpath=cairo:/usr/local/include/cairo
+-depincpath=cairo:/usr/local/opt/cairo/include/cairo
+-depimplibs=cairo:../bin/libcairo-2.dll
+-depimplibs=cairo:../lib/libcairo.dll.a
+-depimplibd=cairo:cairo
+
+-iinclude
+-ideps
+
+-hbx=include/${hb_name}.hbx
+
+src/*.c
+src/*.prg
+
+$hb_pkg_dynlib.hbm
+$hb_pkg_install.hbm

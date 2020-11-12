@@ -1,14 +1,3 @@
-# hb-cairo
-
-hb-cairo is a Harbour module providing bindings for the [Cairo](https://gitlab.freedesktop.org/cairo/cairo) graphics library. It is a continuation of an old project from 2009 by the author of Mindaugas Kavaliauskas. The project has an educational nature - the main goal is to expand knowledge in the field of creating the aplications with the usege of Harbour programing language.
-
-### Getting Started
-
-Installing hb-cairo requires cairo including its headers. For more info see [getting started](docs/tutorial/README.md).
-
-### Example code
-
-``` harbour
 
 #include "hbcairo.ch"
 
@@ -20,6 +9,7 @@ PROCEDURE Main()
    hSurface := cairo_svg_surface_create( "svg.svg", 500, 500 )
    hCairo := cairo_create( hSurface )
 
+   /* Draw the squares in the background */
    FOR x = 0 TO 10
       FOR y = 0 TO 10
          cairo_rectangle( hCairo, x * 10.0, y * 10.0, 5, 5 )
@@ -33,6 +23,7 @@ PROCEDURE Main()
    cairo_set_source( hCairo, hPattern )
    cairo_fill( hCairo )
 
+   /* Writing in the foreground */
    cairo_set_font_size( hCairo, 15 )
    cairo_select_font_face( hCairo, "Georgia", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD )
    cairo_set_source_rgb( hCairo, 0, 0, 0 )
@@ -47,9 +38,3 @@ PROCEDURE Main()
    cairo_surface_destroy( hSurface )
 
    RETURN
-
-```
-
-## Build result
-
-![](docs/assets/img/svg.svg)

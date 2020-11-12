@@ -1,0 +1,6 @@
+# hb-cairo
+*.exe
+*.bak
+hbcairo.hbx
+lib
+tmp
