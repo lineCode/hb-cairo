@@ -7,68 +7,6 @@
 
 #include "hbcairo.h"
 
-/* --- cairo_pattern_t * support --- */
-static HB_GARBAGE_FUNC( hb_cairo_pattern_destructor )
-{
-   cairo_pattern_t ** ppPattern = ( cairo_pattern_t ** ) Cargo;
-
-   if( *ppPattern )
-   {
-      cairo_pattern_destroy( *ppPattern );
-      *ppPattern = NULL;
-   }
-}
-
-static const HB_GC_FUNCS s_gcPatternFuncs =
-{
-   hb_cairo_pattern_destructor,
-   hb_gcDummyMark
-};
-
-cairo_pattern_t * hb_cairoPatternItemGet( PHB_ITEM pItem )
-{
-   cairo_pattern_t ** ppPattern = ( cairo_pattern_t ** ) hb_itemGetPtrGC( pItem, &s_gcPatternFuncs );
-
-   return ppPattern ? *ppPattern : NULL;
-}
-
-PHB_ITEM hb_cairoPatternItemPut( PHB_ITEM pItem, cairo_pattern_t * pPattern )
-{
-   cairo_pattern_t ** ppPattern = ( cairo_pattern_t ** ) hb_gcAllocate( sizeof( cairo_pattern_t * ), &s_gcPatternFuncs );
-
-   *ppPattern = pPattern;
-   return hb_itemPutPtrGC( pItem, ppPattern );
-}
-
-cairo_pattern_t * hb_cairo_pattern_param( int iParam )
-{
-   cairo_pattern_t ** ppPattern = ( cairo_pattern_t ** ) hb_parptrGC( &s_gcPatternFuncs, iParam );
-
-   if( ppPattern && *ppPattern )
-      return *ppPattern;
-
-   hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
-   return NULL;
-}
-
-void hb_cairo_pattern_ret( cairo_pattern_t * pPattern )
-{
-   hb_cairoPatternItemPut( hb_stackReturnItem(), pPattern );
-}
-
-HB_FUNC( CAIRO_PATTERN_DESTROY )
-{
-   cairo_pattern_t ** ppPattern = ( cairo_pattern_t ** ) hb_parptrGC( &s_gcPatternFuncs, 1 );
-
-   if( ppPattern && *ppPattern )
-   {
-      cairo_pattern_destroy( *ppPattern );
-      *ppPattern = NULL;
-   }
-   else
-      hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
-}
-
 HB_FUNC( CAIRO_PATTERN_ADD_COLOR_STOP_RGB )
 {
    cairo_pattern_t * pPattern = hb_cairo_pattern_param( 1 );
