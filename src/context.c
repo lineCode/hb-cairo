@@ -10,6 +10,18 @@
 /*
  * cairo_t
  * cairo_t — The cairo drawing context
+ *
+ * Types and Values
+ *
+ * typedef cairo_t
+ * enum    cairo_antialias_t
+ * enum    cairo_fill_rule_t
+ * enum    cairo_line_cap_t
+ * enum    cairo_line_join_t
+ * enum    cairo_operator_t
+ *	        cairo_rectangle_t
+ * 	     cairo_rectangle_list_t
+ *
  */
 
 // cairo_t * cairo_create( cairo_surface_t *target );
