@@ -7,6 +7,7 @@
 
 #include "hbcairo.h"
 
+// cairo_surface_t * cairo_image_surface_create_from_png( const char *filename );
 HB_FUNC( CAIRO_IMAGE_SURFACE_CREATE_FROM_PNG )
 {
 #ifdef CAIRO_HAS_PNG_FUNCTIONS
@@ -16,6 +17,11 @@ HB_FUNC( CAIRO_IMAGE_SURFACE_CREATE_FROM_PNG )
 #endif
 }
 
+// cairo_status_t ( *cairo_read_func_t )( void *closure, unsigned char *data, unsigned int length );
+
+// cairo_surface_t * cairo_image_surface_create_from_png_stream( cairo_read_func_t read_func, void *closure );
+
+// cairo_status_t cairo_surface_write_to_png( cairo_surface_t *surface, const char *filename );
 HB_FUNC( CAIRO_SURFACE_WRITE_TO_PNG )
 {
 #ifdef CAIRO_HAS_PNG_FUNCTIONS
@@ -27,3 +33,7 @@ HB_FUNC( CAIRO_SURFACE_WRITE_TO_PNG )
    hb_retni( -1 );              /* There is no good CAIRO_STATUS_* for this */
 #endif
 }
+
+// cairo_status_t ( *cairo_write_func_t )( void *closure, unsigned char *data, unsigned int length );
+
+// cairo_status_t cairo_surface_write_to_png_stream( cairo_surface_t *surface, cairo_write_func_t write_func, void *closure );
