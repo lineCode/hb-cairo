@@ -50,6 +50,6 @@ PROCEDURE Main()
 
 ```
 
-## Build result
+## The end result
 
 ![](docs/assets/img/svg.svg)
