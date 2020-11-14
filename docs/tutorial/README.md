@@ -2,8 +2,10 @@
 
 * [Harbour programming language](https://en.wikipedia.org/wiki/Harbour_(programming_language))
 * [Homepage](https://harbour.github.io)
-* [Git repository](https://github.com/harbour/core)
-
+* Repository:
+   - [hb30](https://sourceforge.net/projects/harbour-project/files/)
+   - [hb32](https://github.com/harbour/core)
+   - [hb34](https://github.com/vszakats/harbour-core)
 
 # ![mingw-w64](../assets/img/mingw-w64.png) mingw-w64-cairo
 
