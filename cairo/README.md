@@ -7,7 +7,7 @@ Package: [mingw-w64-x86_64-cairo](https://packages.msys2.org/package/mingw-w64-x
 
 ## ![Windows](../docs/assets/img/mingw-w64.png) mingw-w64 GCC for Windows
 
-```
+``` barch
 
 c:\cairo\bin\libcairo-2.dll                    1 093 184 24.10.2020
 c:\cairo\bin\libcairo-gobject-2.dll               35 092 24.10.2020
