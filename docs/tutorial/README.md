@@ -9,7 +9,7 @@
 
 # ![mingw-w64](../assets/img/mingw-w64.png) mingw-w64-cairo
 
-Download binaries **cairo** from this project and install:
+Download binaries **Cairo** from this project and install:
 
 ``` batch
 

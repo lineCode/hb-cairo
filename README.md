@@ -1,6 +1,6 @@
 # hb-cairo
 
-hb-cairo is a Harbour module providing bindings for the [Cairo](https://www.cairographics.org/) graphics library. It is a continuation of an old project from 2009 by the author of *Mindaugas Kavaliauskas*. The project has an educational nature - the main goal is to expand knowledge in the field of creating the aplications with the usege of Harbour programing language.
+hb-cairo is a **Harbour** module providing bindings for the [Cairo](https://www.cairographics.org/) graphics library. It is a continuation of an old project from 2009 by the author of *Mindaugas Kavaliauskas*. The project has an educational nature - the main goal is to expand knowledge in the field of creating the aplications with the usege of Harbour programing language.
 
 ### Getting Started
 
