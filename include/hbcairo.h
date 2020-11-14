@@ -15,7 +15,7 @@
 
 HB_EXTERN_BEGIN
 
-/* --- Drawing --- */ 
+/* --- Drawing --- */
 
 extern HB_EXPORT cairo_t *          hb_cairoItemGet( PHB_ITEM pItem );
 extern HB_EXPORT PHB_ITEM           hb_cairoItemPut( PHB_ITEM pItem, cairo_t * pCairo );
