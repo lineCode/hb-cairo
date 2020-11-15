@@ -13,10 +13,10 @@
  *
  * Types and Values
  *
- * typedef  cairo_pattern_t
- *   enum   cairo_extend_t
- *   enum   cairo_filter_t
- *   enum   cairo_pattern_type_t
+ * typedef   cairo_pattern_t
+ *    enum   cairo_extend_t
+ *    enum   cairo_filter_t
+ *    enum   cairo_pattern_type_t
  *
  */
 
