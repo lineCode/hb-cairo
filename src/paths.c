@@ -13,9 +13,9 @@
  *
  * Types and Values
  *
- *       cairo_path_t
- * union cairo_path_data_t
- * enum  cairo_path_data_type_t
+ *         cairo_path_t
+ * union   cairo_path_data_t
+ * enum    cairo_path_data_type_t
  *
  */
 
