@@ -13,14 +13,14 @@
  *
  * Types and Values
  *
- * typedef cairo_t
- * enum    cairo_antialias_t
- * enum    cairo_fill_rule_t
- * enum    cairo_line_cap_t
- * enum    cairo_line_join_t
- * enum    cairo_operator_t
- *	        cairo_rectangle_t
- * 	     cairo_rectangle_list_t
+ * typedef   cairo_t
+ * enum      cairo_antialias_t
+ * enum      cairo_fill_rule_t
+ * enum      cairo_line_cap_t
+ * enum      cairo_line_join_t
+ * enum      cairo_operator_t
+ *	          cairo_rectangle_t
+ * 	       cairo_rectangle_list_t
  *
  */
 
