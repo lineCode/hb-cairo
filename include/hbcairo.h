@@ -22,6 +22,8 @@ extern HB_EXPORT PHB_ITEM           hb_cairoItemPut( PHB_ITEM pItem, cairo_t * p
 extern HB_EXPORT cairo_t *          hb_cairo_param( int iParam );
 extern HB_EXPORT void               hb_cairo_ret( cairo_t * );
 
+/* *** Paths *** */
+
 extern HB_EXPORT cairo_path_t *     hb_cairoPathItemGet( PHB_ITEM pItem );
 extern HB_EXPORT PHB_ITEM           hb_cairoPathItemPut( PHB_ITEM pItem, cairo_path_t * pPath );
 extern HB_EXPORT cairo_path_t *     hb_cairo_path_param( int iParam );
