@@ -7,7 +7,7 @@
    - [hb32](https://github.com/harbour/core)
    - [hb34](https://github.com/vszakats/harbour-core)
 
-## Install Cairo
+# Install Cairo
 
 ### ![MSYS2](../assets/img/msys2.png) MSYS2
 
