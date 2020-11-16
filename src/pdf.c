@@ -6,7 +6,6 @@
  */
 
 #include "hbcairo.h"
-#include "cairo-pdf.h"
 
 /*
  * enum                cairo_pdf_version_t;
