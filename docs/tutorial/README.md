@@ -23,6 +23,23 @@ export HB_WITH_CAIRO="$usr/mingw64/include"
 
 ```
 
+```
+
+$ gcc --version
+gcc.exe (Rev5, Built by MSYS2 project) 10.2.0
+...
+
+$ cd hb-cairo
+$ hbmk2 hbcairo.hbp
+hbmk2: Dependency 'cairo' found: C:\msys64\mingw64\include
+hbmk2: Created import library: lib\win\mingw64\libcairo.a <=
+       C:\msys64\mingw64\bin\libcairo-2.dll
+hbmk2: Created import library: lib\win\mingw64\libcairo.a <=
+       C:\msys64\mingw64\lib\libcairo.dll.a
+hbmk2: Target up to date: lib\win\mingw64\libhbcairo.a
+
+```
+
 ### ![mingw-w64](../assets/img/mingw-w64.png) mingw-w64
 
 Download binaries **Cairo** from this project and install:
@@ -61,6 +78,22 @@ For the record:
 
 c:\>set HB_WITH_CAIRO=C:\cairo\include
 c:\>set PATH=C:\cairo\bin;%PATH%
+
+```
+```
+
+c:\>gcc --version
+gcc (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 8.1.0
+...
+
+c:\>cd hb-cairo
+c:\hb-cairo>hbmk2 hb-cairo.hbp
+hbmk2: Dependency 'cairo' found: c:\cairo\include
+hbmk2: Created import library: lib\win\mingw64\libcairo.a <=
+       c:\cairo\bin\libcairo-2.dll
+hbmk2: Created import library: lib\win\mingw64\libcairo.a <=
+       c:\cairo\lib\libcairo.dll.a
+hbmk2: Target up to date: lib\win\mingw64\libhbcairo.a
 
 ```
 
