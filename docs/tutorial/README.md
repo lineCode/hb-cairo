@@ -87,7 +87,7 @@ gcc (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 8.1.0
 ...
 
 c:\>cd hb-cairo
-c:\hb-cairo>hbmk2 hb-cairo.hbp
+c:\hb-cairo>hbmk2 hbcairo.hbp
 hbmk2: Dependency 'cairo' found: c:\cairo\include
 hbmk2: Created import library: lib\win\mingw64\libcairo.a <=
        c:\cairo\bin\libcairo-2.dll
