@@ -16,7 +16,7 @@
 -deppkgname=cairo:mingw-w64-i686-cairo{msys2&x86}
 -deppkgname=cairo:mingw-w64-x86_64-cairo{msys2&x86_64}
 -depkeyhead=cairo:cairo/cairo.h
--depcontrol=cairo:no{HB_BUILD_3RDEXT='no'}
+#-depcontrol=cairo:no{HB_BUILD_3RDEXT='no'}
 -depcontrol=cairo:${HB_WITH_CAIRO}
 -depincpath=cairo:/usr/include/cairo
 -depincpath=cairo:/usr/local/include/cairo
