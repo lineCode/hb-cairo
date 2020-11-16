@@ -23,7 +23,7 @@ export HB_WITH_CAIRO="$usr/mingw64/include"
 
 ```
 
-### ![mingw-w64](../assets/img/mingw-w64.png) mingw-w64-cairo
+### ![mingw-w64](../assets/img/mingw-w64.png) mingw-w64
 
 Download binaries **Cairo** from this project and install:
 
