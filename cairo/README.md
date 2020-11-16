@@ -1,4 +1,4 @@
-# Cairo vector graphics library
+# Cairo vector graphics library 1.17.2-3
 
 ## ![MSYS2](../docs/assets/img/msys2.png) mingw-w64
 

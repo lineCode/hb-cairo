@@ -2,29 +2,46 @@
 
 * [Harbour programming language](https://en.wikipedia.org/wiki/Harbour_(programming_language))
 * [Homepage](https://harbour.github.io)
-* Repository:
+* Select your Harbour:
    - [hb30](https://sourceforge.net/projects/harbour-project/files/)
    - [hb32](https://github.com/harbour/core)
    - [hb34](https://github.com/vszakats/harbour-core)
 
-# ![mingw-w64](../assets/img/mingw-w64.png) mingw-w64-cairo
+## Install Cairo
+
+### ![MSYS2](../assets/img/msys2.png) MSYS2
+
+```
+
+pacman -S mingw-w64-x86_64-cairo
+
+```
+
+```
+
+export HB_WITH_CAIRO="$usr/mingw64/include"
+
+```
+
+### ![mingw-w64](../assets/img/mingw-w64.png) mingw-w64-cairo
 
 Download binaries **Cairo** from this project and install:
 
-``` batch
+```
 
-c:\>
+c:\cairo\bin
+c:\cairo\include
+c:\cairo\lib
 
 ```
 
 Install the rest of the missing libraries in mingw-w64
 
-``` batch
+```
 
 c:\>mingw-w64
 
 ```
-
 
 Click New to create a new environment variable. Click Edit to modify an existing environment variable.
 
@@ -40,7 +57,7 @@ The Edit environment variable UI will appear. Here, you can click New and type i
 
 For the record:
 
-``` batch
+```
 
 c:\>set HB_WITH_CAIRO=C:\cairo\include
 c:\>set PATH=C:\cairo\bin;%PATH%
