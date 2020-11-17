@@ -11,19 +11,19 @@
 
 ### ![MSYS2](../assets/img/msys2.png) MSYS2
 
-```
+``` shell
 
-pacman -S mingw-w64-x86_64-cairo
-
-```
+$ pacman -S mingw-w64-x86_64-cairo
 
 ```
 
-export HB_WITH_CAIRO="$usr/mingw64/include"
+``` shell
+
+$ export HB_WITH_CAIRO="$usr/mingw64/include"
 
 ```
 
-```
+``` shell
 
 $ gcc --version
 gcc.exe (Rev5, Built by MSYS2 project) 10.2.0
@@ -44,7 +44,7 @@ hbmk2: Target up to date: lib\win\mingw64\libhbcairo.a
 
 Download binaries **Cairo** from this project and install:
 
-```
+``` shell
 
 c:\cairo\bin
 c:\cairo\include
@@ -54,7 +54,7 @@ c:\cairo\lib
 
 Install the rest of the missing libraries in mingw-w64
 
-```
+``` shell
 
 c:\>mingw-w64
 
@@ -74,13 +74,13 @@ The Edit environment variable UI will appear. Here, you can click New and type i
 
 For the record:
 
-```
+``` shell
 
 c:\>set HB_WITH_CAIRO=C:\cairo\include
 c:\>set PATH=C:\cairo\bin;%PATH%
 
 ```
-```
+``` shell
 
 c:\>gcc --version
 gcc (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 8.1.0
