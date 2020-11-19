@@ -1,13 +1,10 @@
 /*
  * Cairo library: pattern
  *
+ * Copyright 2020 Rafał Jopek ( rafaljopek at hotmail com )
+ *
  * Copyright 2013 Oscar Hernandez Suarez <oscar.hernandez.suarez@gmail.com>
  *
- */
-
-#include "hbcairo.h"
-
-/*
  * cairo_pattern_t
  * cairo_pattern_t — Sources for drawing
  *
@@ -20,6 +17,7 @@
  *
  */
 
+#include "hbcairo.h"
 
 // void cairo_pattern_add_color_stop_rgb( cairo_pattern_t *pattern, double offset, double red, double green, double blue );
 HB_FUNC( CAIRO_PATTERN_ADD_COLOR_STOP_RGB )
@@ -27,7 +25,13 @@ HB_FUNC( CAIRO_PATTERN_ADD_COLOR_STOP_RGB )
    cairo_pattern_t * pPattern = hb_cairo_pattern_param( 1 );
 
    if( pPattern )
+   {
       cairo_pattern_add_color_stop_rgb( pPattern, hb_parnd( 2 ), hb_parnd( 3 ), hb_parnd( 4 ), hb_parnd( 5 ) );
+   }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 // void cairo_pattern_add_color_stop_rgba( cairo_pattern_t *pattern, double offset, double red, double green, double blue, double alpha );
@@ -36,7 +40,13 @@ HB_FUNC( CAIRO_PATTERN_ADD_COLOR_STOP_RGBA )
    cairo_pattern_t * pPattern = hb_cairo_pattern_param( 1 );
 
    if( pPattern )
+   {
       cairo_pattern_add_color_stop_rgba( pPattern, hb_parnd( 2 ), hb_parnd( 3 ), hb_parnd( 4 ), hb_parnd( 5 ), hb_parnd( 6 ) );
+   }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 // cairo_status_t cairo_pattern_get_color_stop_count( cairo_pattern_t *pattern, int *count );
@@ -53,7 +63,10 @@ HB_FUNC( CAIRO_PATTERN_GET_COLOR_STOP_COUNT )
       hb_storni( iCount, 2 );
    }
    else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
       hb_retni( -1 );
+   }
 #else
    hb_cairo_pattern_param( 1 ); /* Parameter validation */
    hb_retni( -1 );              /* There is no good CAIRO_STATUS_* for this */
@@ -83,7 +96,10 @@ HB_FUNC( CAIRO_PATTERN_GET_COLOR_STOP_RGBA )
       hb_stornd( dAlpha, 7 );
    }
    else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
       hb_retni( -1 );
+   }
 #else
    hb_cairo_pattern_param( 1 ); /* Parameter validation */
    hb_retni( -1 );              /* There is no good CAIRO_STATUS_* for this */
@@ -123,7 +139,10 @@ HB_FUNC( CAIRO_PATTERN_GET_RGBA )
       hb_stornd( dAlpha, 5 );
    }
    else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
       hb_retni( -1 );
+   }
 #else
    hb_cairo_pattern_param( 1 ); /* Parameter validation */
    hb_retni( -1 );              /* There is no good CAIRO_STATUS_* for this */
@@ -151,7 +170,10 @@ HB_FUNC( CAIRO_PATTERN_GET_SURFACE )
       hb_cairoSurfaceStor( pSurface, 2 );
    }
    else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
       hb_retni( -1 );
+   }
 #else
    hb_cairo_pattern_param( 1 ); /* Parameter validation */
    hb_retni( -1 );              /* There is no good CAIRO_STATUS_* for this */
@@ -185,7 +207,10 @@ HB_FUNC( CAIRO_PATTERN_GET_LINEAR_POINTS )
       hb_stornd( dY1, 5 );
    }
    else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
       hb_retni( -1 );
+   }
 #else
    hb_cairo_pattern_param( 1 ); /* Parameter validation */
    hb_retni( -1 );              /* There is no good CAIRO_STATUS_* for this */
@@ -223,7 +248,10 @@ HB_FUNC( CAIRO_PATTERN_GET_RADIAL_CIRCLES )
       hb_stornd( dR1, 7 );
    }
    else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
       hb_retni( -1 );
+   }
 #else
    hb_cairo_pattern_param( 1 ); /* Parameter validation */
    hb_retni( -1 );              /* There is no good CAIRO_STATUS_* for this */
@@ -266,9 +294,14 @@ HB_FUNC( CAIRO_PATTERN_STATUS )
    cairo_pattern_t * pPattern = hb_cairo_pattern_param( 1 );
 
    if( pPattern )
+   {
       hb_retni( cairo_pattern_status( pPattern ) );
+   }
    else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
       hb_retni( -1 );
+   }
 }
 
 // void cairo_pattern_set_extend( cairo_pattern_t *pattern, cairo_extend_t extend );
