@@ -40,7 +40,7 @@ hbmk2: Target up to date: lib\win\mingw64\libhbcairo.a
 
 ```
 
-### ![mingw-w64](../assets/img/mingw-w64.png) mingw-w64
+### ![MinGW-w64](../assets/img/mingw-w64.png) MinGW-w64
 
 Download binaries **Cairo** from this project and install:
 
