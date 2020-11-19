@@ -1,8 +1,10 @@
 /*
  * Cairo library: utility functions
  *
+ * Copyright 2020 Rafał Jopek ( rafaljopek at hotmail com )
+ *
  * Copyright 2009 Mindaugas Kavaliauskas <dbtopas at dbtopas.lt>
- * 
+ *
  */
 
 #include "hbcairo.h"

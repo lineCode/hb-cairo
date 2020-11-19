@@ -1,6 +1,8 @@
 /*
  * Cairo library: core
  *
+ * Copyright 2020 Rafał Jopek ( rafaljopek at hotmail com )
+ *
  * Copyright 2009 Mindaugas Kavaliauskas <dbtopas at dbtopas.lt>
  *
  */
@@ -422,4 +424,3 @@ HB_FUNC( CAIRO_PATH_ITERATOR_SET_POINTS )
    else
       hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
 }
-

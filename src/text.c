@@ -1,6 +1,8 @@
 /*
  * Cairo library: text
  *
+ * Copyright 2020 Rafał Jopek ( rafaljopek at hotmail com )
+ *
  * Copyright 2009 Mindaugas Kavaliauskas <dbtopas at dbtopas.lt>
  *
  */
@@ -24,6 +26,10 @@ HB_FUNC( CAIRO_FONT_EXTENTS )
       hb_arraySetND( pItem, 4, fe.max_x_advance );
       hb_arraySetND( pItem, 5, fe.max_y_advance );
    }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 HB_FUNC( CAIRO_GET_FONT_MATRIX )
@@ -44,6 +50,10 @@ HB_FUNC( CAIRO_GET_FONT_MATRIX )
       hb_arraySetND( pItem, 5, m.x0 );
       hb_arraySetND( pItem, 6, m.y0 );
    }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 HB_FUNC( CAIRO_SELECT_FONT_FACE )
@@ -55,6 +65,10 @@ HB_FUNC( CAIRO_SELECT_FONT_FACE )
       void * hFamily;
       cairo_select_font_face( pCairo, hb_parstr_utf8( 2, &hFamily, NULL ), ( cairo_font_slant_t ) hb_parni( 3 ), ( cairo_font_weight_t ) hb_parni( 4 ) );
       hb_strfree( hFamily );
+   }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
    }
 }
 
@@ -78,7 +92,9 @@ HB_FUNC( CAIRO_SET_FONT_MATRIX )
          cairo_set_font_matrix( pCairo, &m );
       }
       else
+      {
          hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+      }
    }
 }
 
@@ -87,7 +103,13 @@ HB_FUNC( CAIRO_SET_FONT_SIZE )
    cairo_t * pCairo = hb_cairo_param( 1 );
 
    if( pCairo )
+   {
       cairo_set_font_size( pCairo, hb_parnd( 2 ) );
+   }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 HB_FUNC( CAIRO_SHOW_TEXT )
@@ -100,8 +122,13 @@ HB_FUNC( CAIRO_SHOW_TEXT )
       cairo_show_text( pCairo, hb_parstr_utf8( 2, &hText, NULL ) );
       hb_strfree( hText );
    }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
+// void cairo_text_extents(cairo_t *cr, const char *utf8, cairo_text_extents_t *extents);
 HB_FUNC( CAIRO_TEXT_EXTENTS )
 {
    cairo_t * pCairo = hb_cairo_param( 1 );
@@ -121,5 +148,9 @@ HB_FUNC( CAIRO_TEXT_EXTENTS )
       hb_arraySetND( pItem, 4, te.height    );
       hb_arraySetND( pItem, 5, te.x_advance );
       hb_arraySetND( pItem, 6, te.y_advance );
+   }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
    }
 }

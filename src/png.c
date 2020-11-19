@@ -1,6 +1,8 @@
 /*
  * Cairo library: png
  *
+ * Copyright 2020 Rafał Jopek ( rafaljopek at hotmail com )
+ *
  * Copyright 2009 Mindaugas Kavaliauskas <dbtopas at dbtopas.lt>
  *
  */
@@ -27,7 +29,14 @@ HB_FUNC( CAIRO_SURFACE_WRITE_TO_PNG )
 #ifdef CAIRO_HAS_PNG_FUNCTIONS
    cairo_surface_t * pSurface = hb_cairo_surface_param( 1 );
    if( pSurface )
+   {
       hb_retni( cairo_surface_write_to_png( pSurface, hb_parc( 2 ) ) );
+   }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
+
 #else
    hb_cairo_surface_param( 1 ); /* Parameter validation */
    hb_retni( -1 );              /* There is no good CAIRO_STATUS_* for this */

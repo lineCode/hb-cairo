@@ -1,8 +1,10 @@
 /*
  * Cairo library: transformations
  *
+ * Copyright 2020 Rafał Jopek ( rafaljopek at hotmail com )
+ *
  * Copyright 2009 Mindaugas Kavaliauskas <dbtopas at dbtopas.lt>
- * 
+ *
  */
 
 #include "hbcairo.h"
@@ -25,6 +27,10 @@ HB_FUNC( CAIRO_GET_MATRIX )
       hb_arraySetND( pItem, 5, m.x0 );
       hb_arraySetND( pItem, 6, m.y0 );
    }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 HB_FUNC( CAIRO_IDENTITY_MATRIX )
@@ -32,7 +38,13 @@ HB_FUNC( CAIRO_IDENTITY_MATRIX )
    cairo_t * pCairo = hb_cairo_param( 1 );
 
    if( pCairo )
+   {
       cairo_identity_matrix( pCairo );
+   }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 HB_FUNC( CAIRO_ROTATE )
@@ -40,7 +52,13 @@ HB_FUNC( CAIRO_ROTATE )
    cairo_t * pCairo = hb_cairo_param( 1 );
 
    if( pCairo )
+   {
       cairo_rotate( pCairo, hb_parnd( 2 ) );
+   }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 HB_FUNC( CAIRO_SET_MATRIX )
@@ -63,7 +81,9 @@ HB_FUNC( CAIRO_SET_MATRIX )
          cairo_set_matrix( pCairo, &m );
       }
       else
-         hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+      {
+         hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+      }
    }
 }
 
@@ -72,7 +92,13 @@ HB_FUNC( CAIRO_SCALE )
    cairo_t * pCairo = hb_cairo_param( 1 );
 
    if( pCairo )
+   {
       cairo_scale( pCairo, hb_parnd( 2 ), hb_parnd( 3 ) );
+   }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 HB_FUNC( CAIRO_TRANSFORM )
@@ -95,7 +121,9 @@ HB_FUNC( CAIRO_TRANSFORM )
          cairo_transform( pCairo, &m );
       }
       else
+      {
          hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+      }
    }
 }
 
@@ -104,5 +132,11 @@ HB_FUNC( CAIRO_TRANSLATE )
    cairo_t * pCairo = hb_cairo_param( 1 );
 
    if( pCairo )
+   {
       cairo_translate( pCairo, hb_parnd( 2 ), hb_parnd( 3 ) );
+   }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }

@@ -1,6 +1,8 @@
 /*
  * Cairo library: image
  *
+ * Copyright 2020 Rafał Jopek ( rafaljopek at hotmail com )
+ *
  * Copyright 2009 Mindaugas Kavaliauskas <dbtopas at dbtopas.lt>
  *
  */
