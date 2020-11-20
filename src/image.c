@@ -18,6 +18,14 @@
 #include "hbcairo.h"
 
 // int cairo_format_stride_for_width( cairo_format_t format, int width );
+HB_FUNC( CAIRO_FORMAT_STRIDE_FOR_WIDTH )
+{
+#ifdef CAIRO_HAS_IMAGE_SURFACE
+   hb_retni( cairo_format_stride_for_width( ( cairo_format_t ) hb_parni( 1 ), hb_parni( 2 ) ) );
+#else
+   hb_retni( NULL );
+#endif
+}
 
 // cairo_surface_t* cairo_image_surface_create( cairo_format_t format, int width, int height );
 HB_FUNC( CAIRO_IMAGE_SURFACE_CREATE )
