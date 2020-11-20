@@ -47,7 +47,9 @@ cairo_t * hb_cairo_param( int iParam )
    cairo_t ** ppCairo = ( cairo_t ** ) hb_parptrGC( &s_gcCairoFuncs, iParam );
 
    if( ppCairo && *ppCairo )
+   {
       return *ppCairo;
+   }
 
    hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
    return NULL;
@@ -68,7 +70,9 @@ HB_FUNC( CAIRO_DESTROY )
       *ppCairo = NULL;
    }
    else
+   {
       hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 /* --- cairo_path_t * support --- */
@@ -109,7 +113,9 @@ cairo_path_t * hb_cairo_path_param( int iParam )
    cairo_path_t ** ppPath = ( cairo_path_t ** ) hb_parptrGC( &s_gcPathFuncs, iParam );
 
    if( ppPath && *ppPath )
+   {
       return *ppPath;
+   }
 
    hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
    return NULL;
@@ -130,7 +136,9 @@ HB_FUNC( CAIRO_PATH_DESTROY )
       *ppPath = NULL;
    }
    else
+   {
       hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 /* --- cairo_pattern_t * support --- */
@@ -171,7 +179,9 @@ cairo_pattern_t * hb_cairo_pattern_param( int iParam )
    cairo_pattern_t ** ppPattern = ( cairo_pattern_t ** ) hb_parptrGC( &s_gcPatternFuncs, iParam );
 
    if( ppPattern && *ppPattern )
+   {
       return *ppPattern;
+   }
 
    hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
    return NULL;
@@ -192,7 +202,9 @@ HB_FUNC( CAIRO_PATTERN_DESTROY )
       *ppPattern = NULL;
    }
    else
+   {
       hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 /* --- cairo_surface_t * support --- */
@@ -241,7 +253,9 @@ cairo_surface_t * hb_cairo_surface_param( int iParam )
    cairo_surface_t ** ppSurface = ( cairo_surface_t ** ) hb_parptrGC( &s_gcSurfaceFuncs, iParam );
 
    if( ppSurface && *ppSurface )
+   {
       return *ppSurface;
+   }
 
    hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
    return NULL;
@@ -262,7 +276,9 @@ HB_FUNC( CAIRO_SURFACE_DESTROY )
       *ppSurface = NULL;
    }
    else
+   {
       hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 /* --- cairo_path_t * iterator support --- */
@@ -292,7 +308,9 @@ static HB_GARBAGE_FUNC( hb_cairo_path_iterator_mark )
    PHB_CAIRO_PATH_ITERATOR pIterator = ( PHB_CAIRO_PATH_ITERATOR ) Cargo;
 
    if( pIterator->ppPath )
+   {
       hb_gcMark( pIterator->ppPath );
+   }
 }
 
 static const HB_GC_FUNCS s_gcIteratorFuncs =
@@ -314,7 +332,9 @@ HB_FUNC( CAIRO_PATH_ITERATOR_CREATE )
       hb_itemPutPtrGC( hb_stackReturnItem(), pIterator );
    }
    else
+   {
       hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 HB_FUNC( CAIRO_PATH_ITERATOR_DESTROY )
@@ -327,7 +347,9 @@ HB_FUNC( CAIRO_PATH_ITERATOR_DESTROY )
       pIterator->ppPath = NULL;
    }
    else
+   {
       hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 HB_FUNC( CAIRO_PATH_ITERATOR_NEXT )
@@ -339,18 +361,28 @@ HB_FUNC( CAIRO_PATH_ITERATOR_NEXT )
    {
       /* Skip */
       if( pIterator->iPos == -1 )
+      {
          pIterator->iPos = 0;
+      }
       else if( pIterator->iPos < pPath->num_data )
+      {
          pIterator->iPos += pPath->data[ pIterator->iPos ].header.length;
+      }
 
       /* return type */
       if( pIterator->iPos < pPath->num_data )
+      {
          hb_retni( pPath->data[ pIterator->iPos ].header.type );
+      }
       else
+      {
          hb_ret();
+      }
    }
    else
+   {
       hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 HB_FUNC( CAIRO_PATH_ITERATOR_GET_POINTS )
@@ -378,10 +410,14 @@ HB_FUNC( CAIRO_PATH_ITERATOR_GET_POINTS )
          hb_itemReturnRelease( pArray );
       }
       else
+      {
          hb_ret();
+      }
    }
    else
+   {
       hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
 
 HB_FUNC( CAIRO_PATH_ITERATOR_SET_POINTS )
@@ -419,8 +455,12 @@ HB_FUNC( CAIRO_PATH_ITERATOR_SET_POINTS )
          hb_retl( HB_TRUE );
       }
       else
+      {
          hb_retl( HB_FALSE );
+      }
    }
    else
+   {
       hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
 }
