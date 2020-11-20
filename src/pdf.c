@@ -83,6 +83,7 @@ HB_FUNC( CAIRO_PDF_VERSION_TO_STRING )
    {
       hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
    }
+
 #else
    hb_ret( NULL )
 #endif
@@ -139,3 +140,23 @@ HB_FUNC( CAIRO_PDF_SURFACE_ADD_OUTLINE )
 // void cairo_pdf_surface_set_page_label( cairo_surface_t *surface, const char *utf8 );
 
 // void cairo_pdf_surface_set_thumbnail_size( cairo_surface_t *surface, int width, int height );
+{
+HB_FUNC( CAIRO_PDF_SURFACE_SET_THUMBNAIL_SIZE )
+#ifdef CAIRO_HAS_PDF_SURFACE
+
+   cairo_surface_t * pSurface = hb_cairo_surface_param( 1 );
+
+   if( pSurface && hb_param( 2, HB_IT_INTEGER ) != NULL && hb_param( 3, HB_IT_INTEGER ) != NULL )
+   {
+      cairo_pdf_surface_set_thumbnail_size( pSurface, hb_parni( 2 ), hb_parni( 3 ) );
+   }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
+
+#else
+   /* Just paramter validation */
+   hb_cairo_surface_param( 1 );
+#endif
+}
