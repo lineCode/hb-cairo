@@ -128,4 +128,3 @@ HB_FUNC( CAIRO_SVG_VERSION_TO_STRING )
    hb_ret( NULL );
 #endif
 }
-
