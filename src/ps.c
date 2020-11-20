@@ -216,4 +216,3 @@ HB_FUNC( CAIRO_PS_SURFACE_DSC_COMMENT )
    hb_cairo_surface_param( 1 );
 #endif
 }
-
