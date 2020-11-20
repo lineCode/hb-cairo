@@ -120,6 +120,19 @@ HB_FUNC( CAIRO_NEW_PATH )
 }
 
 // void cairo_new_sub_path( cairo_t *cr );
+{
+   cairo_t * pCairo = hb_cairo_param( 1 );
+
+   if( pCairo )
+   {
+      cairo_new_sub_path( pCairo );
+   }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
+}
+
 
 // void cairo_close_path( cairo_t *cr );
 HB_FUNC( CAIRO_CLOSE_PATH )
