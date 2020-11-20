@@ -140,8 +140,8 @@ HB_FUNC( CAIRO_PDF_SURFACE_ADD_OUTLINE )
 // void cairo_pdf_surface_set_page_label( cairo_surface_t *surface, const char *utf8 );
 
 // void cairo_pdf_surface_set_thumbnail_size( cairo_surface_t *surface, int width, int height );
-{
 HB_FUNC( CAIRO_PDF_SURFACE_SET_THUMBNAIL_SIZE )
+{
 #ifdef CAIRO_HAS_PDF_SURFACE
 
    cairo_surface_t * pSurface = hb_cairo_surface_param( 1 );
