@@ -64,13 +64,13 @@ HB_FUNC( CAIRO_STATUS_TO_STRING )
 
 /* Version Information */
 
-// int cairo_version ()
+// int cairo_version()
 HB_FUNC( CAIRO_VERSION )
 {
    hb_retni( cairo_version() );
 }
 
-// const char * cairo_version_string ()
+// const char * cairo_version_string()
 HB_FUNC( CAIRO_VERSION_STRING )
 {
    hb_retc( cairo_version_string() );
