@@ -495,7 +495,15 @@ HB_FUNC( CAIRO_FILL_EXTENTS )
 
    if( pCairo )
    {
-      cairo_fill_extents( pCairo, hb_parnd( 2 ), hb_parnd( 3 ), hb_parnd( 4 ), hb_parnd( 5 ) );
+      PHB_ITEM pItem = hb_stackReturnItem();
+      double   x1, y1, x2, y2;
+
+      cairo_fill_extents( pCairo, &x1, &y1, &x2, &y2 );
+      hb_arrayNew( pItem, 4 );
+      hb_arraySetND( pItem, 1, x1 );
+      hb_arraySetND( pItem, 2, y1 );
+      hb_arraySetND( pItem, 3, x2 );
+      hb_arraySetND( pItem, 4, y2 );
    }
    else
    {
