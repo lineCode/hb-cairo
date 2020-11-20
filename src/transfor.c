@@ -158,3 +158,4 @@ HB_FUNC( CAIRO_IDENTITY_MATRIX )
 // void cairo_device_to_user( cairo_t *cr, double *x, double *y );
 
 // void cairo_device_to_user_distance( cairo_t *cr, double *dx, double *dy );
+
