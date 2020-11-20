@@ -49,6 +49,9 @@ HB_FUNC( CAIRO_COPY_PATH_FLAT )
 }
 
 // void cairo_path_destroy( cairo_path_t *path );
+/*
+ * The function is in the file core.c
+ */
 
 // void cairo_append_path( cairo_t *cr, const cairo_path_t *path );
 HB_FUNC( CAIRO_APPEND_PATH )
