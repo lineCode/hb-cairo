@@ -5,6 +5,12 @@
  *
  * Copyright 2009 Mindaugas Kavaliauskas <dbtopas at dbtopas.lt>
  *
+ * PNG Support — Reading and writing PNG images
+ *
+ * Types and Values
+ *
+ * #define   CAIRO_HAS_PNG_FUNCTIONS
+ *
  */
 
 #include "hbcairo.h"
