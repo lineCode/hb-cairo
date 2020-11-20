@@ -42,7 +42,7 @@ HB_FUNC( CAIRO_CREATE )
 
 // void cairo_destroy( cairo_t *cr );
 /*
- * The function is in the file
+ * The function is in the file core.c
  */
 
 // cairo_status_t cairo_status( cairo_t *cr );
@@ -489,6 +489,19 @@ HB_FUNC( CAIRO_FILL_PRESERVE )
 }
 
 // void cairo_fill_extents( cairo_t *cr, double *x1, double *y1, double *x2, double *y2 );
+HB_FUNC( CAIRO_FILL_EXTENTS )
+{
+   cairo_t * pCairo = hb_cairo_param( 1 );
+
+   if( pCairo )
+   {
+      cairo_fill_extents( pCairo, hb_parnd( 2 ), hb_parnd( 3 ), hb_parnd( 4 ), hb_parnd( 5 ) );
+   }
+   else
+   {
+      hb_errRT_BASE_SubstR( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
+}
 
 // cairo_bool_t cairo_in_fill( cairo_t *cr, double x, double y );
 HB_FUNC( CAIRO_IN_FILL )
