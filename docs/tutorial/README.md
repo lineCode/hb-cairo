@@ -80,6 +80,7 @@ c:\>set HB_WITH_CAIRO=C:\cairo\include
 c:\>set PATH=C:\cairo\bin;%PATH%
 
 ```
+
 ``` shell
 
 c:\>gcc --version
@@ -97,6 +98,19 @@ hbmk2: Target up to date: lib\win\mingw64\libhbcairo.a
 
 ```
 
-##
+# Compiling C Examples
+
+To build the examples in C, use Harbour [**hb34**](https://github.com/vszakats/harbour-core). Other versions Harbour do not have this library build mechanism. [hbmk2 documentation](https://github.com/vszakats/hb/blob/master/utils/hbmk2/doc/hbmk2.en.md)
+
+Build the application using an ANSI C compiler. See the following example lines for reference:
+
+``` shell
+$ cd hb-cairo/examples/c/version
+$ hbmk2 version.c
+hbmk2: Processing local make script: hbmk.hbm
+$ ./version
+Cairo version: 1.17.3
+
+---
 
 [Edit me](https://github.com/rjopek/hb-cairo/edit/main/docs/tutorial/README.md)
