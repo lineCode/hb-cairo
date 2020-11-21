@@ -1,8 +1,9 @@
 
-#include <cairo-svg.h>
 #include <stdio.h>
 
-int main( int argc, char **argv )
+#include "hbcairo.h"
+
+int main( void )
 {
    cairo_surface_t *surface = cairo_svg_surface_create( "svg.svg", 500.0, 500.0 );
    cairo_t *cr = cairo_create( surface );
@@ -28,7 +29,7 @@ int main( int argc, char **argv )
    cairo_show_text( cr, "Hallo" );
 
    cairo_move_to( cr, 10, 75 );
-   cairo_show_text( cr, "Wikipedia!" );
+   cairo_show_text( cr, "Harbour" );
 
    cairo_destroy( cr );
    cairo_surface_destroy( surface );
