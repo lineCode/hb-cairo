@@ -207,6 +207,72 @@ HB_FUNC( CAIRO_PATTERN_DESTROY )
    }
 }
 
+/* --- cairo_region_t * support --- */
+static HB_GARBAGE_FUNC( hb_cairo_region_destructor )
+{
+   cairo_region_t ** ppRegion = ( cairo_region_t ** ) Cargo;
+
+   if( *ppRegion )
+   {
+      cairo_region_destroy( *ppRegion );
+      *ppRegion = NULL;
+   }
+}
+
+static const HB_GC_FUNCS s_gcRegionFuncs =
+{
+   hb_cairo_region_destructor,
+   hb_gcDummyMark
+};
+
+cairo_region_t * hb_cairoRegionItemGet( PHB_ITEM pItem )
+{
+   cairo_region_t ** ppRegion = ( cairo_region_t ** ) hb_itemGetPtrGC( pItem, &s_gcRegionFuncs );
+
+   return ppRegion ? *ppRegion : NULL;
+}
+
+PHB_ITEM hb_cairoRegionItemPut( PHB_ITEM pItem, cairo_region_t * pRegion )
+{
+   cairo_region_t ** ppRegion = ( cairo_region_t ** ) hb_gcAllocate( sizeof( cairo_region_t * ), &s_gcRegionFuncs );
+
+   *ppRegion = pRegion;
+   return hb_itemPutPtrGC( pItem, ppRegion );
+}
+
+cairo_region_t * hb_cairo_region_param( int iParam )
+{
+   cairo_region_t ** ppRegion = ( cairo_region_t ** ) hb_parptrGC( &s_gcRegionFuncs, iParam );
+
+   if( ppRegion && *ppRegion )
+   {
+      return *ppRegion;
+   }
+
+   hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   return NULL;
+}
+
+void hb_cairo_region_ret( cairo_region_t * pRegion )
+{
+   hb_cairoRegionItemPut( hb_stackReturnItem(), pRegion );
+}
+
+HB_FUNC( CAIRO_REGION_DESTROY )
+{
+   cairo_region_t ** ppRegion = ( cairo_region_t ** ) hb_parptrGC( &s_gcRegionFuncs, 1 );
+
+   if( ppRegion && *ppRegion )
+   {
+      cairo_region_destroy( *ppRegion );
+      *ppRegion = NULL;
+   }
+   else
+   {
+      hb_errRT_BASE( EG_ARG, 3012, NULL, HB_ERR_FUNCNAME, HB_ERR_ARGS_BASEPARAMS );
+   }
+}
+
 /* --- cairo_surface_t * support --- */
 static HB_GARBAGE_FUNC( hb_cairo_surface_destructor )
 {
