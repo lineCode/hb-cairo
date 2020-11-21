@@ -36,6 +36,13 @@ extern HB_EXPORT PHB_ITEM           hb_cairoPatternItemPut( PHB_ITEM pItem, cair
 extern HB_EXPORT cairo_pattern_t *  hb_cairo_pattern_param( int iParam );
 extern HB_EXPORT void               hb_cairo_pattern_ret( cairo_pattern_t * pPattern );
 
+/* *** Regions *** */
+
+extern HB_EXPORT cairo_region_t *   hb_cairoRegionItemGet( PHB_ITEM pItem );
+extern HB_EXPORT PHB_ITEM           hb_cairoRegionItemPut( PHB_ITEM pItem, cairo_region_t * pRegion );
+extern HB_EXPORT cairo_region_t *   hb_cairo_region_param( int iParam );
+extern HB_EXPORT void               hb_cairo_region_ret( cairo_region_t * pRegion );
+
 /* --- Surfaces --- */
 
 extern HB_EXPORT cairo_surface_t *  hb_cairoSurfaceItemGet( PHB_ITEM pItem );
