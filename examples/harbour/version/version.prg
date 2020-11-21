@@ -2,7 +2,6 @@
 
 PROCEDURE Main()
 
-   Alert( hb_ValToExp( cairo_version_string() ) )
+   OutStd( "Cairo version: ", cairo_version_string(), e"\n" )
 
    RETURN
-   
