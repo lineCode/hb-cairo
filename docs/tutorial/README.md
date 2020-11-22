@@ -111,6 +111,7 @@ hbmk2: Processing local make script: hbmk.hbm
 $ ./version
 Cairo version: 1.17.3
 
+```
 ---
 
 [Edit me](https://github.com/rjopek/hb-cairo/edit/main/docs/tutorial/README.md)
